@@ -1,0 +1,32 @@
+s1
+
+ip default-gateway 192.168.200.100
+interface vlan 200
+ip address 192.168.200.5 255.255.255.0
+exit
+hostname S1_Cust_net
+ip domain-name team4.com
+crypto key generate rsa
+username arihant password 0 1q2w3e4r
+line vty 0 15
+transport input ssh
+login local
+exit
+enable secret 0 1q2w3e4r
+-------------------------------------------
+
+s2
+
+ip default-gateway 192.168.200.100
+interface vlan 200
+ip address 192.168.200.6 255.255.255.0
+exit
+hostname S2_Cust_net
+ip domain-name team4.com
+crypto key generate rsa
+username arihant password 0 1q2w3e4r
+line vty 0 15
+transport input ssh
+login local
+exit
+enable secret 0 1q2w3e4r
