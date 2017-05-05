@@ -1,0 +1,2 @@
+# mgdns
+tutorial for mgdns
