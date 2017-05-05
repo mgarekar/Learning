@@ -1,0 +1,2 @@
+iptables -F
+iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE
