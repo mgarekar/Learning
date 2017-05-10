@@ -1,0 +1,37 @@
+guessing_game.sh
+#! /bin/bash
+
+echo "Enter a number"
+read input
+
+if [ ${{input}} ge {{10}} ]
+then
+        echo mana
+else
+        echo "input is not 10"
+fi
+
+######################################
+
+"for_loop.sh"
+#! /bin/bash
+
+for i in $(ls)
+do
+        echo $i
+done
+
+##############################################
+
+while_loop.sh
+
+#! /bin/bash
+
+counter=0
+
+while [ $counter -lt 10 ]
+do
+        echo "The world is good!"
+        counter=$((counter + 1))
+
+done
