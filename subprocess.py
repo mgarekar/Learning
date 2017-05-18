@@ -1,4 +1,7 @@
 # Basic Subprocess module
+# Input = python DOMAIN
+# OUTPUT = SUCCESSFUL or ERROR
+# Processing = check if system can reach domain
 
 import subprocess # TO RUN COMMANDS ON lINUX
 import sys # TO GIVE INPUT TO PYTHON PROGRAMS
