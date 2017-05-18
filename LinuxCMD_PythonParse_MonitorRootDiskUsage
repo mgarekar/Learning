@@ -1,0 +1,32 @@
+import subprocess # TO RUN COMMANDS ON lINUX
+import sys # TO GIVE INPUT TO PYTHON PROGRAMS
+
+#INPUT = O/P OF DF-H
+#OUTPUT PERCENTAGE ROOT PARTITION USED
+#DATAPROCESSING = PARSING
+
+raw_cmd="df -h"
+#
+temp_one=subprocess.Popen(raw_cmd, shell=True,stdout=subprocess.PIPE)
+std_out=temp_one.communicate()[0] # call communicate to access stout or stderror
+
+# Filesystem            Size  Used Avail Use% Mounted on
+# /dev/mapper/VolGroup-lv_root
+#                       6.5G 1006M  5.2G  16% /
+# tmpfs                 499M     0  499M   0% /dev/shm
+# /dev/sda1             477M   64M  388M  15% /boot
+
+# print std_out
+for each_line in std_out.split("\n"):
+    temp_list=each_line.split(" ")
+    for each_element in temp_list:
+        if each_element == "/":
+            #found the correct line
+            # print each_line #6.5G 1006M  5.2G  16% /
+            # print temp_list[-2] # 16%
+            val=int(temp_list[-2].rstrip("%"))
+            print "Current root disk usage ="+str(val)+"%"
+            if val > 80:
+                print "Warning, \ exceeds 80% of disk space"
+        else:
+            continue
