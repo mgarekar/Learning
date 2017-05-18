@@ -1,0 +1,16 @@
+import subprocess # TO RUN COMMANDS ON lINUX
+import sys # TO GIVE INPUT TO PYTHON PROGRAMS
+
+raw_cmd="touch $(date +%c | tr -d " ")"
+CMD1=" date +%c "
+CMD2=' tr -d " " '
+
+temp_one=subprocess.Popen(CMD1, shell=True,stdout=subprocess.PIPE)
+temp_two=subprocess.Popen(CMD2, shell=True,stdin=temp_one.stdout,stdout=subprocess.PIPE) # pipe stdout to get control of stdout
+
+std_out=temp_two.communicate()[0] # call communicate to access stout or stderror
+
+# print type(std_out) #str
+# print std_out
+
+subprocess.Popen("touch "+std_out, shell=True)
