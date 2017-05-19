@@ -35,3 +35,21 @@ do
         counter=$((counter + 1))
 
 done
+
+####################################################
+#! /bin/bash
+
+#ACCESSING COMMAND LINE VARIABLES
+echo $*
+echo We are running $0
+count=$1
+
+#INITIALIZE VARIABLES
+counter=0
+
+while [ $counter -lt $count ]
+do
+    out=$(date | tr -d " ")
+    touch "file-$counter-$out"
+    counter=$((counter+1))
+done
